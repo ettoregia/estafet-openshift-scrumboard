@@ -10,11 +10,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "story")
-public class Story {
+public class Task {
 	
 	@Id
-    @SequenceGenerator(name = "story_id_seq", sequenceName = "story_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "story_id_seq")
+    @SequenceGenerator(name = "task_id_seq", sequenceName = "task_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_id_seq")
     @Column(name = "id")
 	private int id;
 	@Column(name = "title")
