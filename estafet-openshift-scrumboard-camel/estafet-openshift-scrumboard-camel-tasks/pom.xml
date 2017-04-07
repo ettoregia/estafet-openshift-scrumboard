@@ -12,7 +12,7 @@
 	<artifactId>estafet-openshift-scrumboard-camel-tasks</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Module to expose scrumboard tasks via REST</name>
+	<name>scrumboard-camel-tasks</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

@@ -12,7 +12,7 @@
 	<artifactId>estafet-openshift-scrumboard-entity</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Module to the DB entities and then generate DDL via maven</name>
+	<name>scrumboard-entity</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

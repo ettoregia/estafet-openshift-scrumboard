@@ -20,7 +20,7 @@
 		<module>estafet-openshift-scrumboard-camel-search</module>
 	</modules>
 
-	<name>Scrumboard Demo Project</name>
+	<name>scrumboard.camel</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

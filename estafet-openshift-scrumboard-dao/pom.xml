@@ -12,7 +12,7 @@
 	<artifactId>estafet-openshift-scrumboard-dao</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Module to interact to the DB via daos</name>
+	<name>scrumboard-dao</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

@@ -12,7 +12,7 @@
 	<artifactId>estafet-openshift-scrumboard-camel-search</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Module to expose scrumboard search via REST</name>
+	<name>scrumboard-camel-search</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
