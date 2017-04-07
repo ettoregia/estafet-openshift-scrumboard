@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="scrumboard-unit" transaction-type="JTA">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=jdbc/scrumboardds)</jta-data-source>
+
+        <class>com.estafet.openshift.scrumboard.entity.Story</class>
+        <class>com.estafet.openshift.scrumboard.entity.Task</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+
+        <properties>
+            <property name="openjpa.Log" value="DefaultLevel=TRACE, Runtime=INFO, Tool=INFO, SQL=TRACE" />
+            <property name="openjpa.jdbc.DBDictionary" value="postgres" />
+            <property name="openjpa.jdbc.Schema" value="PUBLIC" />
+            <property name="openjpa.ConnectionFactoryProperties" value="PrintParameters=true" />
+            <property name="openjpa.DataCache" value="true"/>
+            <property name="openjpa.RemoteCommitProvider" value="sjvm"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

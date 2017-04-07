@@ -18,7 +18,34 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
+	
+	<build>
+	<plugins>
+		<plugin>
+			<groupId>io.github.divinespear</groupId>
+			<artifactId>jpa-schema-maven-plugin</artifactId>
+			<version>0.1.12</version>
+			<configuration>
+				<databaseAction>drop-and-create</databaseAction>
+				<format>true</format>
+				<persistenceUnitName>default</persistenceUnitName>
+				<persistenceXml>resources/META-INF/persistence.xml</persistenceXml>
+				<scanTestClasses>false</scanTestClasses>
+				<scriptAction>drop-and-create</scriptAction>
+				<skip>false</skip>
+			</configuration>
+			<executions> 
+			</executions>
+			<dependencies> 
+				<dependency>
+				    <groupId>org.postgresql</groupId>
+				    <artifactId>postgresql</artifactId>
+				    <version>42.0.0</version>
+				</dependency>
+			</dependencies>
+		</plugin>
+	</plugins>
+</build>
 	
 </project>
 
