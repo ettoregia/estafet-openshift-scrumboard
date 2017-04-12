@@ -28,12 +28,20 @@
 		<apache-cxf-version>3.1.5</apache-cxf-version>
 		<activemq-version>5.11.0</activemq-version>
 		<junit-version>4.12</junit-version>
+		<asm-all.version>4.1</asm-all.version>
 		<log4j-version>1.2.17</log4j-version>
+		<http-components.version>4.3.3</http-components.version>
 		<osgi-import-package>*</osgi-import-package>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
+		<dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-all</artifactId>
+            <version>${asm-all.version}</version>
+            <scope>test</scope>
+        </dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-core</artifactId>
@@ -120,6 +128,33 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j-version}</version>
 		</dependency>
+		
+		<!-- testing dependencies -->
+		
+		 <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test</artifactId>
+            <version>${camel-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-blueprint</artifactId>
+            <version>${camel-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>${http-components.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${http-components.version}</version>
+            <scope>test</scope>
+        </dependency>
 
 	</dependencies>
 

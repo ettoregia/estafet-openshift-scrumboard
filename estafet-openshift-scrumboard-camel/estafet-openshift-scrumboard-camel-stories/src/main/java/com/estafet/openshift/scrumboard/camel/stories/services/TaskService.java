@@ -12,47 +12,32 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-@Path("/")
-public class TaskService {
-	
+@Path("/tasks")
+public interface TaskService {
 	
 	@POST
-	@Path("/task/")
+	@Path("/createTask")
 	@Consumes({"application/json" })
-	public void createtask(String taskPayload){
-	}
+	public void createTask();
 	
 	@PUT
-	@Path("/taskId/{id}")
+	@Path("/assignTask")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void amendtask(@PathParam("id") String taskId, String taskPayload){
-		
-	}
+	public void assignTask(@PathParam("id") String taskId);
+	
+	@PUT
+	@Path("/addDoDToTask/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void addDoDToTask(@PathParam("id") String taskId);
 	
 	@DELETE
-	@Path("/taskId/{id}")
+	@Path("/deleteTaskById")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void deleteTask(@PathParam("id") String taskId){
-		
-	}
+	public void deleteTaskById(@PathParam("id") String taskId);
 	
 	@GET
-	@Path("/taskId/{id}/")
+	@Path("/findTaskById")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response searchTask(){
-		System.out.println("------------------------------In method GET-------------------------");
-		Task task = new Task();
-		task.setAssignedto("Dennis");
-		task.setId(111);
-		task.setTitle("Define a REST API");
-		return Response.status(Status.OK).
-                 entity(task).build();
-		
-	}
+	public Response findTaskById();
 	
-	/*@POST
-	@Path("/taskId/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public int assigntask(int taskId, String assignee);
-*/
 }

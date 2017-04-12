@@ -6,7 +6,7 @@ import com.estafet.openshift.scrumboard.camel.stories.services.Task;
 
 public class TaskProcessor {
 	
-	public String searchTask(String taskId) throws Exception {
+	public void searchTask(Exchange exchange) throws Exception {
         // get the id of the input
         //ClaimInput input = exchange.getIn().getBody(ClaimInput.class);
 		String json = "  \"ID\": +taskId \"\n" +
@@ -17,8 +17,13 @@ public class TaskProcessor {
         "  \"ownedby\": \"Ettore\",\n" +
         "  \"assignedto\": \"Dennis\"\n" +
         "}\n" ;
-        System.out.println("Searched task:" +taskId);
-        return json;
+		Task task = new Task();
+		task.setAssignedto("Dennis");
+		task.setId(111);
+		task.setTitle("Define a REST API");
+		exchange.getIn().setBody(task);
+//        System.out.println("Searched task:" +taskId);
+//        return json;
     }
 	
 	public void createTask(Task task) {
