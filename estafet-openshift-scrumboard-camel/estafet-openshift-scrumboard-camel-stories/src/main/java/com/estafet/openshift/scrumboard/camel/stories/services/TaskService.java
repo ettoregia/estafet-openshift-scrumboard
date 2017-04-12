@@ -9,6 +9,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 @Path("/")
 public class TaskService {
@@ -35,10 +37,16 @@ public class TaskService {
 	}
 	
 	@GET
-	@Path("/task/{id}/")
-	public int searchTask(@PathParam("id") String taskId){
-		System.out.println("task searched");
-		return 0;
+	@Path("/taskId/{id}/")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response searchTask(){
+		System.out.println("------------------------------In method GET-------------------------");
+		Task task = new Task();
+		task.setAssignedto("Dennis");
+		task.setId(111);
+		task.setTitle("Define a REST API");
+		return Response.status(Status.OK).
+                 entity(task).build();
 		
 	}
 	

@@ -1,6 +1,8 @@
 package com.estafet.openshift.scrumboard.camel.stories.routebuilders;
 
+import org.apache.camel.ExchangePattern;
 import org.apache.camel.LoggingLevel;
+import org.apache.camel.ValidationException;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 
@@ -16,33 +18,10 @@ public class StoryRoute extends RouteBuilder{
 
     private void configureGlobalErrorHandling() {
 
-        /*onException(InvalidNXPBatchFileNameException.class)
-            .setHeader(ExchangeConstants.CHM_ERROR)
-                .constant("Invalid NXP batch file name format: ${exception.message}")
-            .setHeader(ExchangeConstants.CHM_ERROR_CODE)
-                .constant(NXPExceptionCodes.INVALID_FILENAME.getErrorCode())
-
-            .log(LoggingLevel.ERROR, "Invalid NXP batch file name format : ${exception.message}")
-            .log(LoggingLevel.ERROR, "Sending error to error message queue and notifying splunk and siem")
-
-            .to(ExchangePattern.InOnly, "direct:processing.nxp.batch.processing.error.handling.route")
-            .handled(true);
-
-        onException(ValidationException.class)
-            .setHeader(ExchangeConstants.CHM_ERROR)
-                .constant("XML Schema error : ${exception.message}")
-            .log(LoggingLevel.ERROR, "XML Schema error: ${exception.message}")
-            .setHeader(ExchangeConstants.CHM_ERROR_CODE)
-                .constant(NXPExceptionCodes.INVALID_XML.getErrorCode())
-
-            .log(LoggingLevel.ERROR, "Sending error to error to nxp failure route")
-            .to(ExchangePattern.InOnly, "direct:processing.nxp.batch.processing.error.handling.route")
-            .handled(true);
-
         onException(Throwable.class)
             .handled(true)
             .log(LoggingLevel.ERROR, "${exception.message}\n${exception.stacktrace}")
-            .to(ExchangePattern.InOnly, "direct:processing.nxp.batch.processing.error.handling.route");*/
+            .to(ExchangePattern.InOnly, "direct:processing.nxp.batch.processing.error.handling.route");
     }
 
     public void configure() throws Exception {

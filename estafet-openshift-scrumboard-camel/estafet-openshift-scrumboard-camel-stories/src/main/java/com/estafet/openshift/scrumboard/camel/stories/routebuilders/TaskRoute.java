@@ -59,25 +59,29 @@ public class TaskRoute extends RouteBuilder{
         		+ "resourceClasses=com.estafet.openshift.scrumboard.camel.stories.services.TaskService")
         .routeId("com.estafet.openshift.scrumboard.camel.tasks")
         .streamCaching()
-        .unmarshal().json(JsonLibrary.Jackson, Task.class)
+        
         .log(LoggingLevel.INFO, "${header.CamelHttpMethod}")
         .log(LoggingLevel.INFO, "Operation Name: ${header.operationName}")
 		.choice()
 			.when(simple("${header.CamelHttpMethod} =~ 'GET'"))
-				.bean("taskProcessor", "searchTask")
+//				.bean("taskProcessor", "searchTask")
 			.when(simple("${header.CamelHttpMethod} =~ 'POST'"))
+				.unmarshal().json(JsonLibrary.Jackson, Task.class)
 				.bean("taskProcessor", "createTask")
 			.when(simple("${header.CamelHttpMethod} =~ 'PUT'"))
+				.unmarshal().json(JsonLibrary.Jackson, Task.class)
 				.bean("taskProcessor", "amendTask")
 			.when(simple("${header.CamelHttpMethod} =~ 'DELETE'"))
+				.unmarshal().json(JsonLibrary.Jackson, Task.class)
 				.bean("taskProcessor", "deleteTask")
-		.end()
-		.setBody(simple(""));	
+		.end();
+//		.setBody(simple(""));	
                 /*.streamCaching()*/
 //                .log(LoggingLevel.INFO, "Entry route to accept task creation started: ${routeId}\n Request ${body}");
         
 //        Polling Route
-        /*from("{{nxp.batch.processing.polling.uri}}")
+        /*from("{{nxp.batch.processing.polling.uri}}")ok sure
+         * 
                 .routeId("com.arqiva.chm.processing.csr.nxp.poll")
                 .streamCaching()
                 .log(LoggingLevel.INFO, "Started scheduled polling route ${routeId}.")
