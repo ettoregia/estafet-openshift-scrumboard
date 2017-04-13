@@ -8,44 +8,50 @@
 		<artifactId>estafet-openshift-scrumboard</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.estafet.openshift.scrumboard.entity</groupId>
 	<artifactId>estafet-openshift-scrumboard-entity</artifactId>
 	<packaging>jar</packaging>
-
 	<name>scrumboard-entity</name>
-	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+		    <groupId>javax.persistence</groupId>
+		    <artifactId>persistence-api</artifactId>
+		    <version>1.0.2</version>
+		</dependency>
+	</dependencies>
+	<!-- <build>
+		<plugins>
+			<plugin>
+				<groupId>io.github.divinespear</groupId>
+				<artifactId>jpa-schema-maven-plugin</artifactId>
+				<version>0.1.12</version>
+				<executions>
+					<execution>
+						<id>generate-ddl</id>
+						<configuration>
+							<databaseAction>drop-and-create</databaseAction>
+							<format>true</format>
+							<persistenceUnitName>default</persistenceUnitName>
+							<persistenceXml>resources/META-INF/persistence.xml</persistenceXml>
+							<scanTestClasses>false</scanTestClasses>
+							<scriptAction>drop-and-create</scriptAction>
+							<skip>false</skip>
+							<createOutputFileName>target/ddl.sql</createOutputFileName>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>42.0.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build> -->
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-	
-	<build>
-	<plugins>
-		<plugin>
-			<groupId>io.github.divinespear</groupId>
-			<artifactId>jpa-schema-maven-plugin</artifactId>
-			<version>0.1.12</version>
-			<configuration>
-				<databaseAction>drop-and-create</databaseAction>
-				<format>true</format>
-				<persistenceUnitName>default</persistenceUnitName>
-				<persistenceXml>resources/META-INF/persistence.xml</persistenceXml>
-				<scanTestClasses>false</scanTestClasses>
-				<scriptAction>drop-and-create</scriptAction>
-				<skip>false</skip>
-			</configuration>
-			<executions> 
-			</executions>
-			<dependencies> 
-				<dependency>
-				    <groupId>org.postgresql</groupId>
-				    <artifactId>postgresql</artifactId>
-				    <version>42.0.0</version>
-				</dependency>
-			</dependencies>
-		</plugin>
-	</plugins>
-</build>
-	
 </project>
 

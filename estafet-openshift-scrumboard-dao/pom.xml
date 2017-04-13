@@ -8,17 +8,18 @@
 		<artifactId>estafet-openshift-scrumboard</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.estafet.openshift.scrumboard.dao</groupId>
 	<artifactId>estafet-openshift-scrumboard-dao</artifactId>
 	<packaging>jar</packaging>
 
 	<name>scrumboard-dao</name>
-	<url>http://maven.apache.org</url>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
 	
+	<dependencies>
+		<dependency>
+			<groupId>com.estafet.openshift.scrumboard</groupId>
+			<artifactId>estafet-openshift-scrumboard-entity</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
 </project>
 

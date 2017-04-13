@@ -1,0 +1,43 @@
+package com.estafet.openshift.scrumboard.camel.stories.processors;
+
+import org.apache.camel.Exchange;
+
+import com.estafet.openshift.scrumboard.camel.stories.services.Task;
+
+public class TaskProcessor {
+	
+	public String searchTask(String taskId) throws Exception {
+        // get the id of the input
+        //ClaimInput input = exchange.getIn().getBody(ClaimInput.class);
+		String json = "  \"ID\": +taskId \"\n" +
+        "  \"title\": \"Define a REST API\",\n" +
+        "  \"description\": \"All the operations are clearly defined with URLs and Message Structure\",\n" +
+        "  \"hours\": \"20\",\n" +
+        "  \"DoD\": \"A Google Doc describing the APIs\",\n" +
+        "  \"ownedby\": \"Ettore\",\n" +
+        "  \"assignedto\": \"Dennis\"\n" +
+        "}\n" ;
+        System.out.println("Searched task:" +taskId);
+        return json;
+    }
+	
+	public void createTask(Task task) {
+        // get the id of the input
+        //ClaimInput input = exchange.getIn().getBody(ClaimInput.class);
+        System.out.println(task);
+    }
+	
+	public void amendTask(Exchange exchange) {
+        // get the id of the input
+        //ClaimInput input = exchange.getIn().getBody(ClaimInput.class);
+		Task task = exchange.getIn().getBody(Task.class);
+        System.out.println(task.toString());
+    }
+	
+	public void deleteTask(String taskId) {
+        // get the id of the input
+        //ClaimInput input = exchange.getIn().getBody(ClaimInput.class);
+        System.out.println("Deleted task:" +taskId);
+    }
+	
+}
