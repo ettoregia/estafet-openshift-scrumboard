@@ -1,6 +1,7 @@
 package com.estafet.openshift.scrumboard.camel.stories.services;
 
 import java.util.List;
+import com.estafet.openshift.scrumboard.entity;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -30,12 +31,12 @@ public interface StoryService {
 	public void assignTaskToStory();
 	
 	@DELETE
-	@Path("/storyId/{id}")
+	@Path("/deleteStoryById/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void deleteStoryById();
 	
 	@GET
-	@Path("/storyId/{id}/")
+	@Path("/findStoryById/{id}/")
 	public List<Story> findStoryById();
 	
 	

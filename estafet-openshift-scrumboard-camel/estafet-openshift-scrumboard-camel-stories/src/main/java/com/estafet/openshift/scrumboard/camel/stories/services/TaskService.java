@@ -23,17 +23,17 @@ public interface TaskService {
 	@PUT
 	@Path("/assignTask")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void assignTask(@PathParam("id") String taskId);
+	public void assignTask();
 	
 	@PUT
 	@Path("/addDoDToTask/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void addDoDToTask(@PathParam("id") String taskId);
+	public void addDoDToTask();
 	
 	@DELETE
 	@Path("/deleteTaskById")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void deleteTaskById(@PathParam("id") String taskId);
+	public void deleteTaskById();
 	
 	@GET
 	@Path("/findTaskById")

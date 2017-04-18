@@ -1,6 +1,5 @@
 package com.estafet.openshift.scrumboard.camel.stories.services;
 
-import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
 public class TaskServiceImpl implements TaskService {
@@ -9,13 +8,13 @@ public class TaskServiceImpl implements TaskService {
 	public void createTask() {
 	}
 	@Override
-	public void assignTask(String taskId) {
+	public void assignTask() {
 	}
 	@Override
-	public void addDoDToTask(String taskId) {
+	public void addDoDToTask() {
 	}
 	@Override
-	public void deleteTaskById(String taskId) {
+	public void deleteTaskById() {
 	}
 	@Override
 	public Response findTaskById() {

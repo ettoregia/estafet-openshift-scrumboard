@@ -1,11 +1,26 @@
 package com.estafet.openshift.scrumboard.camel.stories.processors;
 
+import javax.ws.rs.core.Response;
+
 import org.apache.camel.Exchange;
 
 import com.estafet.openshift.scrumboard.camel.stories.services.Task;
 
 public class TaskProcessor {
 	
+	public void createTask() {
+	}
+	public void assignTask() {
+	}
+	public void addDoDToTask() {
+	}
+	public void deleteTaskById() {
+	}
+	public Response findTaskById() {
+		return null;
+	}
+	
+	/*
 	public void searchTask(Exchange exchange) throws Exception {
         // get the id of the input
         //ClaimInput input = exchange.getIn().getBody(ClaimInput.class);
@@ -43,6 +58,6 @@ public class TaskProcessor {
         // get the id of the input
         //ClaimInput input = exchange.getIn().getBody(ClaimInput.class);
         System.out.println("Deleted task:" +taskId);
-    }
+    }*/
 	
 }
