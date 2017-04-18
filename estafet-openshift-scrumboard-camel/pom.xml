@@ -3,16 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-
-	<parent>
-		<groupId>com.estafet.openshift.scrumboard</groupId>
-		<artifactId>estafet-openshift-scrumboard</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-	<groupId>com.estafet.openshift.scrumboard.camel</groupId>
+	<groupId>com.estafet.openshift.scrumboard</groupId>
 	<artifactId>estafet-openshift-scrumboard-camel</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-
 
 	<modules>
 		<module>estafet-openshift-scrumboard-camel-stories</module>
@@ -21,8 +15,7 @@
 	</modules>
 
 	<name>scrumboard.camel</name>
-	<url>http://maven.apache.org</url>
-
+	
 	<properties>
 		<camel-version>2.17.1</camel-version>
 		<apache-cxf-version>3.1.5</apache-cxf-version>
@@ -155,6 +148,12 @@
             <version>${http-components.version}</version>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+		    <groupId>com.estafet.openshift.scrumboard</groupId>
+		    <artifactId>estafet-openshift-scrumboard-entity</artifactId>
+		    <version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 	</dependencies>
 

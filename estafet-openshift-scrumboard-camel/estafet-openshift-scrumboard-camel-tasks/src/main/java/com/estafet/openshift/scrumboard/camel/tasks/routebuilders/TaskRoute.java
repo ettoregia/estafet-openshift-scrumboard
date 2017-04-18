@@ -1,15 +1,10 @@
-package com.estafet.openshift.scrumboard.camel.stories.routebuilders;
+package com.estafet.openshift.scrumboard.camel.tasks.routebuilders;
 
-import org.apache.camel.Exchange;
-import org.apache.camel.ExchangePattern;
 import org.apache.camel.LoggingLevel;
-import org.apache.camel.Predicate;
-import org.apache.camel.PropertyInject;
-import org.apache.camel.ValidationException;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 
-import com.estafet.openshift.scrumboard.camel.stories.services.Task;
+import com.estafet.openshift.scrumboard.entity.Task;
 
 public class TaskRoute extends RouteBuilder{
 	
