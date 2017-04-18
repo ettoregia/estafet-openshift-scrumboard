@@ -21,16 +21,6 @@
 		<apache-cxf-version>3.1.5</apache-cxf-version>
 		<activemq-version>5.11.0</activemq-version>
 		<junit-version>4.12</junit-version>
-		<log4j-version>1.2.17</log4j-version>
-		<osgi-import-package>*</osgi-import-package>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-	
-<properties>
-		<camel-version>2.17.1</camel-version>
-		<apache-cxf-version>3.1.5</apache-cxf-version>
-		<activemq-version>5.11.0</activemq-version>
-		<junit-version>4.12</junit-version>
 		<asm-all.version>4.1</asm-all.version>
 		<log4j-version>1.2.17</log4j-version>
 		<http-components.version>4.3.3</http-components.version>
