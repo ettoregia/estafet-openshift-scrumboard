@@ -7,6 +7,7 @@ import com.estafet.openshift.scrumboard.camel.stories.services.api.AssignStoryPo
 import com.estafet.openshift.scrumboard.camel.stories.services.api.AssignTaskToStoryParameters;
 import com.estafet.openshift.scrumboard.camel.stories.services.api.ChangeStoryDetailsParameters;
 import com.estafet.openshift.scrumboard.camel.stories.services.api.StoryService;
+import com.estafet.openshift.scrumboard.entity.Story;
 
 @Path("/")
 public class StoryServiceImpl implements StoryService {
@@ -24,7 +25,7 @@ public class StoryServiceImpl implements StoryService {
 	}
 
 	@Override
-	public void deleteStoryById(int storyId) {
+	public void deleteStory(int storyId) {
 		// TODO Auto-generated method stub
 
 	}
@@ -36,9 +37,9 @@ public class StoryServiceImpl implements StoryService {
 	}
 
 	@Override
-	public com.estafet.openshift.scrumboard.entity.Story createStory() {
+	public int createStory(Story story) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override

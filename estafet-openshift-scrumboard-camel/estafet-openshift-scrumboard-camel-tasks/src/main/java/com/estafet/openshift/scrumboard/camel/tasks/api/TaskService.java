@@ -12,17 +12,17 @@ public interface TaskService {
 	@POST
 	@Path("/claimTask/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	void claimTask(int taskId);
+	void claimTask(TaskOperationParameters parameters);
 	
 	@POST
 	@Path("/claimTask/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	void completeTask(int taskId);
+	void completeTask(TaskOperationParameters parameters);
 	
 	@POST
 	@Path("/claimTask/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	void resetTask(int taskId);
+	void resetTask(TaskOperationParameters parameters);
 	
 	@DELETE
 	@Path("/deleteTaskById")

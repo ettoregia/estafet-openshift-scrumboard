@@ -1,20 +1,21 @@
 package com.estafet.openshift.scrumboard.camel.tasks.impl;
 
+import com.estafet.openshift.scrumboard.camel.tasks.api.TaskOperationParameters;
 import com.estafet.openshift.scrumboard.camel.tasks.api.TaskService;
 
 public class TaskServiceImpl implements TaskService {
 
-	public void claimTask(int taskId) {
+	public void claimTask(TaskOperationParameters parameters) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void completeTask(int taskId) {
+	public void completeTask(TaskOperationParameters parameters) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void resetTask(int taskId) {
+	public void resetTask(TaskOperationParameters parameters) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -17,15 +17,15 @@ public interface StoryService {
 	@POST
 	@Path("/createStory/")
 	@Consumes({"application/json" })
-	Story createStory();
-	
+	int createStory(Story story);
+		
 	@DELETE
-	@Path("/storyId/{id}")
+	@Path("/deleteStory/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	void deleteStoryById(int storyId);
+	void deleteStory(int storyId);
 	
 	@GET
-	@Path("/storyId/{id}/")
+	@Path("/getStory/{id}/")
 	Story getStory(int storyId);
 	
 	@POST

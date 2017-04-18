@@ -10,4 +10,22 @@ public class AssignTaskToStoryParameters {
 		this.task = task;
 		this.storyId = storyId;
 	}
+
+	public Task getTask() {
+		return task;
+	}
+
+	public void setTask(Task task) {
+		this.task = task;
+	}
+
+	public int getStoryId() {
+		return storyId;
+	}
+
+	public void setStoryId(int storyId) {
+		this.storyId = storyId;
+	}
+	
+	
 }
