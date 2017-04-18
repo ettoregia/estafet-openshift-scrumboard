@@ -148,6 +148,12 @@
             <version>${http-components.version}</version>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+		    <groupId>com.estafet.openshift.scrumboard</groupId>
+		    <artifactId>estafet-openshift-scrumboard-entity</artifactId>
+		    <version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 	</dependencies>
 

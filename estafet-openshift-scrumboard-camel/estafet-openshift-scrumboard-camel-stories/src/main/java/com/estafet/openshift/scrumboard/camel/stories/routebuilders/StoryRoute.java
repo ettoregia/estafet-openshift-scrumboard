@@ -2,11 +2,10 @@ package com.estafet.openshift.scrumboard.camel.stories.routebuilders;
 
 import org.apache.camel.ExchangePattern;
 import org.apache.camel.LoggingLevel;
-import org.apache.camel.ValidationException;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 
-import com.estafet.openshift.scrumboard.camel.stories.services.Task;
+import com.estafet.openshift.scrumboard.entity.Task;
 
 public class StoryRoute extends RouteBuilder{
 	

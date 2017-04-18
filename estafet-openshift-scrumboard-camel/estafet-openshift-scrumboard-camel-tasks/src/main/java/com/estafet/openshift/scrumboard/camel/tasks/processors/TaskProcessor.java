@@ -1,8 +1,8 @@
-package com.estafet.openshift.scrumboard.camel.stories.processors;
+package com.estafet.openshift.scrumboard.camel.tasks.processors;
 
 import org.apache.camel.Exchange;
 
-import com.estafet.openshift.scrumboard.camel.stories.services.Task;
+import com.estafet.openshift.scrumboard.entity.Task;
 
 public class TaskProcessor {
 	
@@ -19,7 +19,7 @@ public class TaskProcessor {
         "}\n" ;
 		Task task = new Task();
 		task.setAssignedto("Dennis");
-		task.setId(111);
+		//task.setId(111);
 		task.setTitle("Define a REST API");
 		exchange.getIn().setBody(task);
 //        System.out.println("Searched task:" +taskId);

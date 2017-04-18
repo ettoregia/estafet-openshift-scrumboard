@@ -1,6 +1,6 @@
 package com.estafet.openshift.scrumboard.camel.stories.processors;
 
-import com.estafet.openshift.scrumboard.camel.stories.services.Story;
+import com.estafet.openshift.scrumboard.entity.Story;
 
 public class StoryProcessor {
 	
