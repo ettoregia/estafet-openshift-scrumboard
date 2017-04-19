@@ -1,5 +1,9 @@
 package com.estafet.openshift.scrumboard.camel.stories.processors;
 
+import org.apache.camel.Body;
+import org.apache.camel.Exchange;
+import org.apache.camel.Header;
+
 import com.estafet.openshift.scrumboard.camel.stories.services.api.AddAcceptanceCriteriaParameters;
 import com.estafet.openshift.scrumboard.camel.stories.services.api.AssignStoryPointsParameters;
 import com.estafet.openshift.scrumboard.camel.stories.services.api.AssignTaskToStoryParameters;
@@ -12,29 +16,49 @@ public class StoryProcessor {
 	private StoryDAO storyDAO;
 
 
-	public int createStory(Story story) {
-		return 0;
+	public int createStory(@Body Story story) {
+		return storyDAO.saveStory(story);
 	}
 
-	public void assignStorypointsToStoryById(Story story) {
+	public Story getStory(@Header("") int storyId, Exchange exchange) {
+		exchange.getContext();
+		return storyDAO.getStory(storyId);
 	}
-
-	public Story getStory(int storyId) {
-		return null;
+	
+	public void assignStorypointsToStoryById(@Body Story story) {
+		//TODO To be implemented in the DAO
 	}
 
 	public void assignStoryPoints(AssignStoryPointsParameters parameters) {
+		//TODO To be implemented in the DAO
 	}
 
 	public void changeStoryDetails(ChangeStoryDetailsParameters parameters) {
+		//TODO To be implemented in the DAO
 	}
 
 	public void deleteStory(int storyId) {
 	}
 
-	public void addAcceptanceCriteria(AddAcceptanceCriteriaParameters parameters){}
+	public void addAcceptanceCriteria(AddAcceptanceCriteriaParameters parameters){
+		//TODO To be implemented in the DAO
+	}
 
-	public void removeAcceptanceCriteria(int acceptanceCriteriaId){}
+	public void removeAcceptanceCriteria(int acceptanceCriteriaId){
+		//TODO To be implemented in the DAO
+	}
 
-	public void assignTaskToStory(AssignTaskToStoryParameters parameters){}
+	public void assignTaskToStory(AssignTaskToStoryParameters parameters){
+		//TODO To be implemented in the DAO
+	}
+
+	public StoryDAO getStoryDAO() {
+		return storyDAO;
+	}
+
+	public void setStoryDAO(StoryDAO storyDAO) {
+		this.storyDAO = storyDAO;
+	}
+	
+	
 }

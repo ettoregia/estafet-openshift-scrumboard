@@ -8,17 +8,17 @@
 	<!-- Route Builders -->
 
 	<bean id="taskRoute"
-		class="com.estafet.openshift.scrumboard.camel.stories.routebuilders.TaskRoute">
+		class="com.estafet.openshift.scrumboard.camel.tasks.routebuilders.TaskRoute">
 	</bean>
 
 	<!-- Processors -->
 
-	<bean class="com.estafet.openshift.scrumboard.camel.stories.processors.TaskProcessor" id="taskProcessor">
-		<property name="TaskDAO" ref="TaskDAOImpl"/>
+	<bean class="com.estafet.openshift.scrumboard.camel.tasks.processors.TaskProcessor" id="taskProcessor">
+		<property name="TaskDAO" ref="TaskDAOImplService"/>
 	</bean>
 
 	<!-- OSGi services -->
 
-	<reference interface="com.estafet.openshift.scrumboard.dao.api.TaskDAO" id="TaskDAOImpl"/>
+	<reference interface="com.estafet.openshift.scrumboard.dao.api.TaskDAO" id="TaskDAOImplService"/>
 
 </blueprint>

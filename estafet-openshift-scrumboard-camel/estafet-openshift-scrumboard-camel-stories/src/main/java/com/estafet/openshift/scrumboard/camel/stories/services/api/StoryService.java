@@ -39,7 +39,7 @@ public interface StoryService {
 	void changeStoryDetails(ChangeStoryDetailsParameters parameters);
 	
 	@POST
-	@Path("/changeStoryDetails/")
+	@Path("/addAcceptanceCriteria/")
 	@Produces(MediaType.APPLICATION_JSON)
 	void addAcceptanceCriteria(AddAcceptanceCriteriaParameters parameters);
 	

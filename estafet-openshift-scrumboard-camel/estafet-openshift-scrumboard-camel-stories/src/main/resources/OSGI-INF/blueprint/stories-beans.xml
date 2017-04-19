@@ -14,11 +14,11 @@
 	<!-- Processors -->
 
 	<bean class="com.estafet.openshift.scrumboard.camel.stories.processors.StoryProcessor" id="storyProcessor">
-		<property name="StoryDAO" ref="StoryDAOImpl"/>
+		<property name="StoryDAO" ref="StoryDAOImplService"/>
 	</bean>
 
 	<!-- OSGi services -->
 
-	<reference interface="com.estafet.openshift.scrumboard.dao.api.StoryDAO" id="StoryDAOImpl"/>
+	<reference interface="com.estafet.openshift.scrumboard.dao.api.StoryDAO" id="StoryDAOImplService"/>
 
 </blueprint>
