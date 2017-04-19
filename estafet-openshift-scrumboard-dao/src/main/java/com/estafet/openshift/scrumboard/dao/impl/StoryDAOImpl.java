@@ -24,7 +24,7 @@ public class StoryDAOImpl implements StoryDAO {
 		story.setAcceptancecriterias("ddkdkdkdkd");
 		story.setDescription("ffkfkffkfkf");
 		story.setOwnedby("ffkfkfkf");
-		story.setStorypoints("444");
+		story.setStorypoints(444);
 		story.setTitle("44554");
 		return story;
 	}
@@ -37,7 +37,7 @@ public class StoryDAOImpl implements StoryDAO {
 			story.setAcceptancecriterias("ddkdkdkdkd");
 			story.setDescription("ffkfkffkfkf");
 			story.setOwnedby("ffkfkfkf");
-			story.setStorypoints("444");
+			story.setStorypoints(444);
 			story.setTitle("44554");
 			stories.add(story);
 		}

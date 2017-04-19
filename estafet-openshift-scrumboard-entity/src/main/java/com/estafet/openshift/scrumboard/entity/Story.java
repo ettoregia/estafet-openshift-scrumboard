@@ -17,16 +17,22 @@ public class Story {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "story_id_seq")
     @Column(name = "id")
 	private int id;
+	
 	@Column(name = "title")
 	private String title;
+	
 	@Column(name = "description")
 	private String description;
+	
 	@Column(name = "storypoints")
-	private String storypoints;
+	private int storypoints;
+	
 	@Column(name = "acceptancecriterias")
 	private String acceptancecriterias;
+	
 	@Column(name = "ownedby")
 	private String ownedby;
+	
 	@Column(name = "assignedto")
 	private String assignedto;
 	
@@ -42,10 +48,10 @@ public class Story {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getStorypoints() {
+	public int getStorypoints() {
 		return storypoints;
 	}
-	public void setStorypoints(String storypoints) {
+	public void setStorypoints(int storypoints) {
 		this.storypoints = storypoints;
 	}
 	public String getAcceptancecriterias() {
