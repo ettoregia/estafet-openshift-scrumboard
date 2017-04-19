@@ -8,8 +8,9 @@ import com.estafet.openshift.scrumboard.entity.Task;
 
 public class TaskDAOImpl implements TaskDAO {
 
-	public void saveTask(Task task) {
+	public int saveTask(Task task) {
 		// TODO Auto-generated method stub
+		return 0;
 
 	}
 

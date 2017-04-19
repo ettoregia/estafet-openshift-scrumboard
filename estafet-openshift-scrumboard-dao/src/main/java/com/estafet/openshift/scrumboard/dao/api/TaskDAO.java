@@ -6,7 +6,7 @@ import com.estafet.openshift.scrumboard.entity.Task;
 
 public interface TaskDAO {
 
-	void saveTask(Task task);
+	int saveTask(Task task);
 	
 	void deleteTask(Task task);
 	
