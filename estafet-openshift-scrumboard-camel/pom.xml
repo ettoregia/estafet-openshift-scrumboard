@@ -26,9 +26,16 @@
 		<http-components.version>4.3.3</http-components.version>
 		<osgi-import-package>*</osgi-import-package>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<scrumboard-version>0.0.1-SNAPSHOT</scrumboard-version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+            <groupId>com.estafet.openshift.scrumboard</groupId>
+            <artifactId>estafet-openshift-scrumboard-dao</artifactId>
+            <version>${scrumboard-version}</version>
+            <scope>provided</scope>
+        </dependency>	
 		<dependency>
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm-all</artifactId>

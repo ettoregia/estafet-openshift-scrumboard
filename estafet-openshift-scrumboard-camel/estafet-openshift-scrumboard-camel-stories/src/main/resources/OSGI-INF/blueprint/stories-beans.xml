@@ -13,9 +13,9 @@
 
 	<!-- Processors -->
 
-	<bean
-		class="com.estafet.openshift.scrumboard.camel.stories.processors.StoryProcessor"
-		id="storyProcessor" />
+	<bean class="com.estafet.openshift.scrumboard.camel.stories.processors.StoryProcessor" id="storyProcessor">
+		<property name="StoryDAO" ref="StoryDAOImpl"/>
+	</bean>
 
 	<!-- OSGi services -->
 
