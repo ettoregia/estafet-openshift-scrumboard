@@ -7,18 +7,18 @@
 
 	<!-- Route Builders -->
 
-	<bean id="storyRoute"
-		class="com.estafet.openshift.scrumboard.camel.stories.routebuilders.StoryRoute">
+	<bean id="taskRoute"
+		class="com.estafet.openshift.scrumboard.camel.stories.routebuilders.TaskRoute">
 	</bean>
 
 	<!-- Processors -->
 
 	<bean
-		class="com.estafet.openshift.scrumboard.camel.stories.processors.StoryProcessor"
-		id="storyProcessor" />
+		class="com.estafet.openshift.scrumboard.camel.stories.processors.TaskProcessor"
+		id="taskProcessor" />
 
 	<!-- OSGi services -->
 
-	<reference interface="com.estafet.openshift.scrumboard.dao.api.StoryDAO" id="StoryDAOImpl"/>
+	<reference interface="com.estafet.openshift.scrumboard.dao.api.TaskDAO" id="TaskDAOImpl"/>
 
 </blueprint>
