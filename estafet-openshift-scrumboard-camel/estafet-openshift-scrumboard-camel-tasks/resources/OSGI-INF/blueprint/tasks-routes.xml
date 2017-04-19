@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/blueprint"
+	xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
+	xsi:schemaLocation="
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/blueprint/cxf/camel-cxf.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+
+	<!-- <cxf:rsServer address="http://localhost:8182/stories" id="storiesEndpoint"
+		serviceClass="com.estafet.openshift.scrumboard.camel.stories.services.StoryService" />
+	<cxf:rsServer address="http://localhost:8182/tasks" id="tasksEndpoint"
+		serviceClass="com.estafet.openshift.scrumboard.camel.stories.services.TaskService" /> -->
+	
+
+	<!-- Camel Context -->
+	<camel:camelContext id="com.estafet.openshift.scrumboard.stories">
+		<camel:routeBuilder ref="storyRoute" />
+		<camel:routeBuilder ref="taskRoute" />
+	</camel:camelContext>
+
+	<!-- <camelContext id="blueprintContext" trace="false"
+		xmlns="http://camel.apache.org/schema/blueprint">
+		<route>
+			<from uri="cxfrs:bean:storiesEndpoint" />
+			<log message="${header.operationName}" />
+			<log message="Received Request on http(s)" />
+			<marshal>
+				<json library="Jackson" prettyPrint="true" />
+			</marshal>
+		</route>
+		<route>
+			<from uri="cxfrs:bean:tasksEndpoint" />
+			<log message="${header.operationName}" />
+			<log message="Received Request on http(s)" />
+			<marshal>
+				<json library="Jackson" prettyPrint="true" />
+			</marshal>
+		</route>
+	</camelContext> -->
+</blueprint>

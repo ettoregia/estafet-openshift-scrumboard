@@ -16,7 +16,7 @@
 		ref="StoryDAOImpl" />
 	<bean id="StoryDAOImpl" class="com.estafet.openshift.scrumboard.dao.api.StoryDAOImpl">
 	</bean>
-	
+
 	<service id="StoryDAOImplService" interface="com.estafet.openshift.scrumboard.dao.api.TaskDAO"
 		ref="TaskDAOImpl" />
 	<bean id="TaskDAOImpl" class="com.estafet.openshift.scrumboard.dao.api.TaskDAOImpl">
