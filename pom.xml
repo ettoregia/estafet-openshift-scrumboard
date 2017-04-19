@@ -10,6 +10,7 @@
 
 	<modules>
 		<module>estafet-openshift-scrumboard-entity</module>
+		<module>estafet-openshift-scrumboard-db</module>
 		<module>estafet-openshift-scrumboard-dao</module>
 		<module>estafet-openshift-scrumboard-camel</module>
 	</modules>

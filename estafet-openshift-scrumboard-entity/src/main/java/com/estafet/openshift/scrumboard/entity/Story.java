@@ -42,11 +42,11 @@ public class Story {
 	private Set<Task> tasks;
 
 	@ManyToOne
-	@JoinColumn(name = "sprint_id", referencedColumnName = "sprint_id")
+	@JoinColumn(name = "SPRINT_ID", referencedColumnName = "SPRINT_ID")
 	private Sprint storySprint;
 
 	@ManyToOne
-	@JoinColumn(name = "sprint_id", referencedColumnName = "sprint_id")
+	@JoinColumn(name = "PROJECT_ID", referencedColumnName = "PROJECT_ID")
 	private Project storyProject;
 
 	@Column(name = "STATUS")

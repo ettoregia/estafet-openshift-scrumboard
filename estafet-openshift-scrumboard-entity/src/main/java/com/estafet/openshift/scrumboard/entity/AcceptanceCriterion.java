@@ -21,7 +21,7 @@ public class AcceptanceCriterion {
 	private int id;
 
 	@ManyToOne
-	@JoinColumn(name = "story_id", referencedColumnName = "story_id")
+	@JoinColumn(name = "STORY_ID", referencedColumnName = "STORY_ID")
 	private Story criterionStory;
 
 	@Column(name = "DESCRIPTION")

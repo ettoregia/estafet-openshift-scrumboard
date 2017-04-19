@@ -34,14 +34,14 @@ public class Task {
 	private int remainingHours;
 
 	@OneToOne
-	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
+	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
 	private User assigned;
 
 	@Column(name = "STATUS")
 	private TaskStatus status;
 	
 	@ManyToOne
-	@JoinColumn(name = "story_id", referencedColumnName = "story_id")
+	@JoinColumn(name = "STORY_ID", referencedColumnName = "STORY_ID")
 	private Story taskStory;
 
 	public int getId() {

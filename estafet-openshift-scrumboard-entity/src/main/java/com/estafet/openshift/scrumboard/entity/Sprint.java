@@ -43,7 +43,7 @@ public class Sprint {
 	private Set<Story> stories;
 	
 	@ManyToOne
-	@JoinColumn(name = "sprint_id", referencedColumnName = "sprint_id")
+	@JoinColumn(name = "PROJECT_ID", referencedColumnName = "PROJECT_ID")
 	private Project sprintProject;
 
 	public int getId() {
