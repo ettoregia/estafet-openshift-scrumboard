@@ -1,22 +1,42 @@
 package com.estafet.openshift.scrumboard.entity;
 
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "PROJECT")
 public class Project {
 
+	@Id
+	@SequenceGenerator(name = "PROJECT_ID_SEQ", sequenceName = "PROJECT_ID_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PROJECT_ID_SEQ")
+	@Column(name = "PROJECT_ID")
+	private int id;
+	
+	@Column(name = "TITLE")
 	private String title;
 
-	private String description;
+	@OneToMany(mappedBy = "storyProject", cascade = CascadeType.ALL, fetch = FetchType.LAZY)	
+	private Set<Story> backlog;
 
-	private List<Story> backlog;
+	@OneToMany(mappedBy = "sprintProject", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<Sprint> sprints;
 
-	private List<Sprint> sprints;
-
-	public List<Story> getStories() {
+	public Set<Story> getStories() {
 		return backlog;
 	}
 
-	public void setStories(List<Story> backlog) {
+	public void setStories(Set<Story> backlog) {
 		this.backlog = backlog;
 	}
 	
@@ -28,19 +48,11 @@ public class Project {
 		this.title = title;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public List<Sprint> getSprints() {
+	public Set<Sprint> getSprints() {
 		return sprints;
 	}
 
-	public void setSprints(List<Sprint> sprints) {
+	public void setSprints(Set<Sprint> sprints) {
 		this.sprints = sprints;
 	}
 

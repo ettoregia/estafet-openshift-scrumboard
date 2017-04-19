@@ -5,65 +5,99 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "story")
+@Table(name = "TASK")
 public class Task {
-	
+
 	@Id
-    @SequenceGenerator(name = "task_id_seq", sequenceName = "task_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_id_seq")
-    @Column(name = "id")
+	@SequenceGenerator(name = "TASK_ID_SEQ", sequenceName = "TASK_ID_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TASK_ID_SEQ")
+	@Column(name = "TASK_ID")
 	private int id;
-	@Column(name = "title")
+
+	@Column(name = "TITLE")
 	private String title;
-	@Column(name = "description")
+
+	@Column(name = "DESCRIPTION")
 	private String description;
-	@Column(name = "storypoints")
-	private String storypoints;
-	@Column(name = "acceptancecriterias")
-	private String acceptancecriterias;
-	@Column(name = "ownedby")
-	private String ownedby;
-	@Column(name = "assignedto")
-	private String assignedto;
+
+	@Column(name = "INITIAL_HOURS")
+	private int initialHours;
+
+	@Column(name = "REMAINING_HOURS")
+	private int remainingHours;
+
+	@OneToOne
+	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
+	private User assigned;
+
+	@Column(name = "STATUS")
+	private TaskStatus status;
 	
+	@ManyToOne
+	@JoinColumn(name = "story_id", referencedColumnName = "story_id")
+	private Story taskStory;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getStorypoints() {
-		return storypoints;
+
+	public int getInitialHours() {
+		return initialHours;
 	}
-	public void setStorypoints(String storypoints) {
-		this.storypoints = storypoints;
+
+	public void setInitialHours(int initialHours) {
+		this.initialHours = initialHours;
 	}
-	public String getAcceptancecriterias() {
-		return acceptancecriterias;
+
+	public int getRemainingHours() {
+		return remainingHours;
 	}
-	public void setAcceptancecriterias(String acceptancecriterias) {
-		this.acceptancecriterias = acceptancecriterias;
+
+	public void setRemainingHours(int remainingHours) {
+		this.remainingHours = remainingHours;
 	}
-	public String getOwnedby() {
-		return ownedby;
+
+	public User getAssigned() {
+		return assigned;
 	}
-	public void setOwnedby(String ownedby) {
-		this.ownedby = ownedby;
+
+	public void setAssigned(User assigned) {
+		this.assigned = assigned;
 	}
-	public String getAssignedto() {
-		return assignedto;
+
+	public TaskStatus getStatus() {
+		return status;
 	}
-	public void setAssignedto(String assignedto) {
-		this.assignedto = assignedto;
+
+	public void setStatus(TaskStatus status) {
+		this.status = status;
 	}
+
 }

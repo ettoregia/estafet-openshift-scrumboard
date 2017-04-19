@@ -1,75 +1,137 @@
 package com.estafet.openshift.scrumboard.entity;
 
+import java.util.Collection;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "story")
+@Table(name = "STORY")
 public class Story {
-	
+
 	@Id
-    @SequenceGenerator(name = "story_id_seq", sequenceName = "story_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "story_id_seq")
-    @Column(name = "id")
+	@SequenceGenerator(name = "story_id_seq", sequenceName = "story_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "story_id_seq")
+	@Column(name = "STORY_ID")
 	private int id;
-	
-	@Column(name = "title")
+
+	@Column(name = "TITLE")
 	private String title;
-	
-	@Column(name = "description")
+
+	@Column(name = "DESCRIPTION")
 	private String description;
-	
-	@Column(name = "storypoints")
+
+	@Column(name = "STORY_POINTS")
 	private int storypoints;
-	
-	@Column(name = "acceptancecriterias")
-	private String acceptancecriterias;
-	
-	@Column(name = "ownedby")
-	private String ownedby;
-	
-	@Column(name = "assignedto")
-	private String assignedto;
-	
+
+	@OneToMany(mappedBy = "criterionStory", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<AcceptanceCriterion> acceptancecriteria;
+
+	@OneToMany(mappedBy = "taskStory", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<Task> tasks;
+
+	@ManyToOne
+	@JoinColumn(name = "sprint_id", referencedColumnName = "sprint_id")
+	private Sprint storySprint;
+
+	@ManyToOne
+	@JoinColumn(name = "sprint_id", referencedColumnName = "sprint_id")
+	private Project storyProject;
+
+	@Column(name = "STATUS")
+	private StoryStatus status;
+
+	public Project getStoryProject() {
+		return storyProject;
+	}
+
+	public void setStoryProject(Project storyProject) {
+		this.storyProject = storyProject;
+	}
+
+	public Sprint getStorySprint() {
+		return storySprint;
+	}
+
+	public void setStorySprint(Sprint storySprint) {
+		this.storySprint = storySprint;
+	}
+
+	public StoryStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(StoryStatus status) {
+		this.status = status;
+	}
+
+	public Collection<Task> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(Set<Task> tasks) {
+		this.tasks = tasks;
+	}
+
+	public void setAcceptancecriteria(Set<AcceptanceCriterion> acceptancecriteria) {
+		this.acceptancecriteria = acceptancecriteria;
+	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public int getStorypoints() {
 		return storypoints;
 	}
+
 	public void setStorypoints(int storypoints) {
 		this.storypoints = storypoints;
 	}
-	public String getAcceptancecriterias() {
-		return acceptancecriterias;
+
+	public int getId() {
+		return id;
 	}
-	public void setAcceptancecriterias(String acceptancecriterias) {
-		this.acceptancecriterias = acceptancecriterias;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getOwnedby() {
-		return ownedby;
+
+	public Collection<AcceptanceCriterion> getAcceptancecriteria() {
+		return acceptancecriteria;
 	}
-	public void setOwnedby(String ownedby) {
-		this.ownedby = ownedby;
+
+	public void setAcceptancecriterias(Set<AcceptanceCriterion> acceptancecriteria) {
+		this.acceptancecriteria = acceptancecriteria;
 	}
-	public String getAssignedto() {
-		return assignedto;
+
+	public void addAcceptanceCriterion(String criterion) {
+		AcceptanceCriterion acceptanceCriterion = new AcceptanceCriterion();
+		acceptanceCriterion.setCriterionStory(this);
+		acceptancecriteria.add(acceptanceCriterion);
 	}
-	public void setAssignedto(String assignedto) {
-		this.assignedto = assignedto;
-	}
+	
 }

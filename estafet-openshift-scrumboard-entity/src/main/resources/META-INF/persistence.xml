@@ -9,6 +9,10 @@
 
         <class>com.estafet.openshift.scrumboard.entity.Story</class>
         <class>com.estafet.openshift.scrumboard.entity.Task</class>
+        <class>com.estafet.openshift.scrumboard.entity.User</class>
+        <class>com.estafet.openshift.scrumboard.entity.Project</class>
+        <class>com.estafet.openshift.scrumboard.entity.AcceptanceCriterion</class>
+        <class>com.estafet.openshift.scrumboard.entity.Sprint</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 

@@ -20,10 +20,8 @@ public class StoryDAOImpl implements StoryDAO {
 
 	public Story getStory(Integer id) {
 		Story story = new Story();
-		story.setAssignedto("ssjsjsjs");
-		story.setAcceptancecriterias("ddkdkdkdkd");
+		story.addAcceptanceCriterion("ddkdkdkdkd");
 		story.setDescription("ffkfkffkfkf");
-		story.setOwnedby("ffkfkfkf");
 		story.setStorypoints(444);
 		story.setTitle("44554");
 		return story;
@@ -33,10 +31,8 @@ public class StoryDAOImpl implements StoryDAO {
 		List<Story> stories = new ArrayList<Story>();
 		for (int i = 0; i < 10; i++) {
 			Story story = new Story();
-			story.setAssignedto("ssjsjsjs");
-			story.setAcceptancecriterias("ddkdkdkdkd");
+			story.addAcceptanceCriterion("ddkdkdkdkd");
 			story.setDescription("ffkfkffkfkf");
-			story.setOwnedby("ffkfkfkf");
 			story.setStorypoints(444);
 			story.setTitle("44554");
 			stories.add(story);

@@ -18,7 +18,7 @@ public class TaskProcessor {
         "  \"assignedto\": \"Dennis\"\n" +
         "}\n" ;
 		Task task = new Task();
-		task.setAssignedto("Dennis");
+		//task.setAssignedto("Dennis");
 		//task.setId(111);
 		task.setTitle("Define a REST API");
 		exchange.getIn().setBody(task);
