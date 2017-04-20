@@ -33,7 +33,7 @@ public class Sprint {
 	private Calendar startDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "START_DATE")
+	@Column(name = "END_DATE")
 	private Calendar endDate;
 
 	@Column(name = "SPRINT_NUMBER")

@@ -14,6 +14,28 @@
 
 	<name>scrumboard-db</name>
 
+	<properties>
+		<hibernate.version>5.2.10.Final</hibernate.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.estafet.openshift.scrumboard</groupId>
+			<artifactId>estafet-openshift-scrumboard-entity</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.4-1206-jdbc42</version>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -22,22 +44,15 @@
 				<version>1.5.0</version>
 				<executions>
 					<execution>
-						<phase>exec</phase>
+						<phase>test</phase>
 						<goals>
-							<goal>exec</goal>
+							<goal>java</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<mainClass>com.estafet.openshift.scrumboard.entity.db.GenerateJPASchema</mainClass>
+					<mainClass>com.estafet.openshift.scrumboard.db.GenerateJPASchema</mainClass>
 				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>com.estafet.openshift.scrumboard</groupId>
-						<artifactId>estafet-openshift-scrumboard-entity</artifactId>
-						<version>${project.version}</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
