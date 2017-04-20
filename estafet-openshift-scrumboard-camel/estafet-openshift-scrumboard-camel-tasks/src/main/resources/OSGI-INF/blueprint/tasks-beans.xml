@@ -14,7 +14,7 @@
 	<!-- Processors -->
 
 	<bean class="com.estafet.openshift.scrumboard.camel.tasks.processors.TaskProcessor" id="taskProcessor">
-		<property name="TaskDAO" ref="TaskDAOImplService"/>
+		<property name="taskDAO" ref="TaskDAOImplService"/>
 	</bean>
 
 	<!-- OSGi services -->
