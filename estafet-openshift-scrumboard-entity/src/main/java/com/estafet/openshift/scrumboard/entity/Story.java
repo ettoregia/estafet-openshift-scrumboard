@@ -1,6 +1,6 @@
 package com.estafet.openshift.scrumboard.entity;
 
-import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -51,87 +51,71 @@ public class Story {
 
 	@Column(name = "STATUS")
 	private StoryStatus status;
+	
+	Story() { }
+			
 
-	public Project getStoryProject() {
-		return storyProject;
+	public Story(String title, String description) {
+		this.title = title;
+		this.description = description;
+		status = StoryStatus.PLANNING;
+	}
+	
+	public Story addAcceptanceCriterion(String criterion) {
+		AcceptanceCriterion acceptanceCriterion = new AcceptanceCriterion();
+		acceptanceCriterion.setCriterionStory(this);
+		if (acceptancecriteria == null) {
+			acceptancecriteria = new HashSet<AcceptanceCriterion>();
+		}
+		acceptancecriteria.add(acceptanceCriterion);
+		return this;
+	}
+	
+	public Story addTask(Task task) {
+		task.setTaskStory(this);
+		if (tasks == null) {
+			tasks = new HashSet<Task>();
+		}
+		tasks.add(task);
+		return this;
 	}
 
-	public void setStoryProject(Project storyProject) {
-		this.storyProject = storyProject;
+	public Story setStorypoints(int storypoints) {
+		this.storypoints = storypoints;
+		return this;
 	}
 
-	public Sprint getStorySprint() {
-		return storySprint;
-	}
-
-	public void setStorySprint(Sprint storySprint) {
+	public Story setStorySprint(Sprint storySprint) {
 		this.storySprint = storySprint;
+		return this;
 	}
 
 	public StoryStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(StoryStatus status) {
-		this.status = status;
-	}
-
-	public Collection<Task> getTasks() {
+	public Set<Task> getTasks() {
 		return tasks;
-	}
-
-	public void setTasks(Set<Task> tasks) {
-		this.tasks = tasks;
-	}
-
-	public void setAcceptancecriteria(Set<AcceptanceCriterion> acceptancecriteria) {
-		this.acceptancecriteria = acceptancecriteria;
 	}
 
 	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public String getDescription() {
 		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public int getStorypoints() {
 		return storypoints;
 	}
 
-	public void setStorypoints(int storypoints) {
-		this.storypoints = storypoints;
-	}
-
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Collection<AcceptanceCriterion> getAcceptancecriteria() {
+	public Set<AcceptanceCriterion> getAcceptancecriteria() {
 		return acceptancecriteria;
 	}
 
-	public void setAcceptancecriterias(Set<AcceptanceCriterion> acceptancecriteria) {
-		this.acceptancecriteria = acceptancecriteria;
-	}
-
-	public void addAcceptanceCriterion(String criterion) {
-		AcceptanceCriterion acceptanceCriterion = new AcceptanceCriterion();
-		acceptanceCriterion.setCriterionStory(this);
-		acceptancecriteria.add(acceptanceCriterion);
-	}
-	
 }

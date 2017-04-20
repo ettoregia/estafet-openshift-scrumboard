@@ -1,53 +1,28 @@
 package com.estafet.openshift.scrumboard.dao.impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.EntityManager;
 
 import com.estafet.openshift.scrumboard.dao.api.TaskDAO;
 import com.estafet.openshift.scrumboard.entity.Task;
-import com.estafet.openshift.scrumboard.entity.User;
 
 public class TaskDAOImpl implements TaskDAO {
 
+	private EntityManager entityManager;
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+	
 	public int saveTask(Task task) {
-		// TODO Auto-generated method stub
-		return 0;
-
+		return ((Task)entityManager.merge(task)).getId();
 	}
 
-	public void deleteTask(Task task) {
-		// TODO Auto-generated method stub
-
+	public void deleteTask(int taskId) {
+		entityManager.remove(getTask(taskId));
 	}
 
-	public Task getTask(Integer id) {
-		Task task = new Task();
-		User user = new User();
-		user.setName("Ettore");
-		user.setUserId("ettore");
-		task.setAssigned(user);
-		task.setDescription("sskssks");
-		task.setInitialHours(50);
-		task.setRemainingHours(30);
-		task.setTitle("4444");
-		return task;
-	}
-
-	public List<Task> findTask() {
-		List<Task> tasks = new ArrayList<Task>();
-		for (int i=0; i < 10; i++) {
-			Task task = new Task();
-			User user = new User();
-			user.setName("Ettore");
-			user.setUserId("ettore");
-			task.setAssigned(user);
-			task.setDescription("sskssks");
-			task.setInitialHours(50);
-			task.setRemainingHours(30);
-			task.setTitle("4444");
-			tasks.add(task);
-		}
-		return tasks;
+	public Task getTask(int id) {
+		return entityManager.find(Task.class, id);
 	}
 
 }

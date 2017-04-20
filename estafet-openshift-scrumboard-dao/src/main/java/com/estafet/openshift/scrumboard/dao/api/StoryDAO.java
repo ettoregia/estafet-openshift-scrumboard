@@ -1,17 +1,14 @@
 package com.estafet.openshift.scrumboard.dao.api;
 
-import java.util.List;
-
 import com.estafet.openshift.scrumboard.entity.Story;
 
 public interface StoryDAO {
 
 	int saveStory(Story story);
 	
-	void deleteStory(Story story);
+	void deleteStory(int storyId);
 	
-	Story getStory(Integer id);
+	Story getStory(int id);
 	
-	List<Story> findStory();
 	
 }

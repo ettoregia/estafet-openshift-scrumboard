@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <story story_id="1" description="test story" status="1" story_points="20" title="story"/>
+    <task task_id="1" description="test task" initial_hours="13" status="0" title="testing task" story_id="1"/>
+</dataset>

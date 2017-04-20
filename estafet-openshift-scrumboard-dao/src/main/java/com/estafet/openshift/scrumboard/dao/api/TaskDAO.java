@@ -1,17 +1,14 @@
 package com.estafet.openshift.scrumboard.dao.api;
 
-import java.util.List;
-
 import com.estafet.openshift.scrumboard.entity.Task;
 
 public interface TaskDAO {
 
 	int saveTask(Task task);
 	
-	void deleteTask(Task task);
+	void deleteTask(int taskId);
 	
-	Task getTask(Integer id);
+	Task getTask(int id);
 	
-	List<Task> findTask();
 		
 }

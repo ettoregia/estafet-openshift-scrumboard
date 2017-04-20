@@ -28,10 +28,10 @@ public class Task {
 	private String description;
 
 	@Column(name = "INITIAL_HOURS")
-	private int initialHours;
+	private Integer initialHours;
 
 	@Column(name = "REMAINING_HOURS")
-	private int remainingHours;
+	private Integer remainingHours;
 
 	@OneToOne
 	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
@@ -39,65 +39,52 @@ public class Task {
 
 	@Column(name = "STATUS")
 	private TaskStatus status;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "STORY_ID", referencedColumnName = "STORY_ID")
 	private Story taskStory;
 
-	public int getId() {
-		return id;
+	Task() { }
+
+	public Task(String title, String description, Integer initialHours) {
+		this.title = title;
+		this.description = description;
+		this.initialHours = initialHours;
+		status = TaskStatus.UNCLAIMED;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getId() {
+		return id;
 	}
 
 	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public String getDescription() {
 		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public int getInitialHours() {
 		return initialHours;
 	}
 
-	public void setInitialHours(int initialHours) {
-		this.initialHours = initialHours;
-	}
-
 	public int getRemainingHours() {
 		return remainingHours;
-	}
-
-	public void setRemainingHours(int remainingHours) {
-		this.remainingHours = remainingHours;
 	}
 
 	public User getAssigned() {
 		return assigned;
 	}
 
-	public void setAssigned(User assigned) {
-		this.assigned = assigned;
-	}
-
 	public TaskStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(TaskStatus status) {
-		this.status = status;
+	void setTaskStory(Story taskStory) {
+		this.taskStory = taskStory;
 	}
+	
+	
 
 }
