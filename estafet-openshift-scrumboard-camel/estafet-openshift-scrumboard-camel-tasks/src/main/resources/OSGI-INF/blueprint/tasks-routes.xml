@@ -8,8 +8,8 @@
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
 	<!-- Camel Context -->
-	<camel:camelContext id="com.estafet.openshift.scrumboard.stories">
-		<camel:routeBuilder ref="storyRoute" />
+	<camel:camelContext id="com.estafet.openshift.scrumboard.tasks">
+		<camel:routeBuilder ref="taskRoute" />
 	</camel:camelContext>
 
 </blueprint>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
 	xsi:schemaLocation="
@@ -14,11 +15,9 @@
 
 	<service id="StoryDAOImplService" interface="com.estafet.openshift.scrumboard.dao.api.StoryDAO"
 		ref="StoryDAOImpl" />
-	<bean id="StoryDAOImpl" class="com.estafet.openshift.scrumboard.dao.api.StoryDAOImpl">
-	</bean>
+	<bean id="StoryDAOImpl" class="com.estafet.openshift.scrumboard.dao.impl.StoryDAOImpl" />
 
-	<service id="StoryDAOImplService" interface="com.estafet.openshift.scrumboard.dao.api.TaskDAO"
+	<service id="TaskDAOImplService" interface="com.estafet.openshift.scrumboard.dao.api.TaskDAO"
 		ref="TaskDAOImpl" />
-	<bean id="TaskDAOImpl" class="com.estafet.openshift.scrumboard.dao.api.TaskDAOImpl">
-	</bean>
+	<bean id="TaskDAOImpl" class="com.estafet.openshift.scrumboard.dao.impl.TaskDAOImpl"/>
 </blueprint>

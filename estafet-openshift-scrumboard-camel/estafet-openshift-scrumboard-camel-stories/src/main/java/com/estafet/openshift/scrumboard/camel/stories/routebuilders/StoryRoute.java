@@ -5,8 +5,6 @@ import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 
-import com.estafet.openshift.scrumboard.entity.Task;
-
 public class StoryRoute extends RouteBuilder{
 	
 	/*@PropertyInject(value = "nxp.batch.processing.file.pattern")
@@ -31,22 +29,25 @@ public class StoryRoute extends RouteBuilder{
         		+ "resourceClasses=com.estafet.openshift.scrumboard.camel.stories.services.StoryService")
         .routeId("com.estafet.openshift.scrumboard.camel.stories")
         .streamCaching()
-        .unmarshal().json(JsonLibrary.Jackson, Task.class)
+        .unmarshal().json(JsonLibrary.Jackson)
         .log(LoggingLevel.INFO, "${header.CamelHttpMethod}")
         .log(LoggingLevel.INFO, "Operation Name: ${header.operationName}")
 		.choice()
-			.when(simple("${header.CamelHttpMethod} =~ 'GET'"))
-				.bean("taskProcessor", "searchTask")
-//				.bean("taskDAO", "searchTask")
-			.when(simple("${header.CamelHttpMethod} =~ 'POST'"))
-				.bean("taskProcessor", "createTask")
-//				.bean("taskDAO", "createTask")
-			.when(simple("${header.CamelHttpMethod} =~ 'PUT'"))
-				.bean("taskProcessor", "amendTask")
-//				.bean("taskDAO", "amendTask")
-			.when(simple("${header.CamelHttpMethod} =~ 'DELETE'"))
-				.bean("taskProcessor", "deleteTask")
-//				.bean("taskDAO", "deleteTask")
+			.when(simple("${header.operationName} =~ 'createStory'"))
+				.bean("storyProcessor", "createStory")
+			.when(simple("${header.operationName} =~ 'deleteStory'"))
+				.bean("storyProcessor", "deleteStory")
+			.when(simple("${header.operationName} =~ 'getStory'"))
+				.bean("storyProcessor", "getStory")
+			.when(simple("${header.operationName} =~ 'assignStoryPoints'"))
+				.bean("storyProcessor", "assignStoryPoints")
+			.when(simple("${header.operationName} =~ 'changeStoryDetails'"))
+				.bean("storyProcessor", "changeStoryDetails")
+			.when(simple("${header.operationName} =~ 'addAcceptanceCriteria'"))
+				.bean("storyProcessor", "addAcceptanceCriteria")
+			.when(simple("${header.operationName} =~ 'assignstoryToStory'"))
+				.bean("storyProcessor", "assignstoryToStory")
+				
 		.end()
 		.setBody(simple(""));	
         

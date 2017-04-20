@@ -6,7 +6,7 @@ import com.estafet.openshift.scrumboard.entity.Story;
 
 public interface StoryDAO {
 
-	void saveStory(Story story);
+	int saveStory(Story story);
 	
 	void deleteStory(Story story);
 	

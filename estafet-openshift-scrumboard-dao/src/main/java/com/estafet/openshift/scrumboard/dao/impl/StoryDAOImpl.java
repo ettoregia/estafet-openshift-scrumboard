@@ -8,8 +8,9 @@ import com.estafet.openshift.scrumboard.entity.Story;
 
 public class StoryDAOImpl implements StoryDAO {
 
-	public void saveStory(Story story) {
+	public int saveStory(Story story) {
 		// TODO Auto-generated method stub
+		return 0;
 
 	}
 

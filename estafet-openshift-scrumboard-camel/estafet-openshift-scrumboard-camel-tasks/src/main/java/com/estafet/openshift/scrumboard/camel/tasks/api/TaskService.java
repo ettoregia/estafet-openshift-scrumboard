@@ -15,17 +15,17 @@ public interface TaskService {
 	void claimTask(TaskOperationParameters parameters);
 	
 	@POST
-	@Path("/claimTask/{id}")
+	@Path("/completeTask/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	void completeTask(TaskOperationParameters parameters);
 	
 	@POST
-	@Path("/claimTask/{id}")
+	@Path("/resetTask/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	void resetTask(TaskOperationParameters parameters);
 	
 	@DELETE
-	@Path("/deleteTaskById")
+	@Path("/deleteTask/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void deleteTask(int taskId);
 	
