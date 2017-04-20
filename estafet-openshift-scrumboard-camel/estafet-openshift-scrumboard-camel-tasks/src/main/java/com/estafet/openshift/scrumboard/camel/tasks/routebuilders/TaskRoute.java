@@ -16,7 +16,7 @@ public class TaskRoute extends RouteBuilder{
 
         from("cxfrs:http://localhost:8183/tasks?"
         		+ "bindingStyle=SimpleConsumer&"
-        		+ "resourceClasses=com.estafet.openshift.scrumboard.camel.stories.services.TaskService")
+        		+ "resourceClasses=com.estafet.openshift.scrumboard.camel.tasks.impl.TaskServiceImpl")
         .routeId("com.estafet.openshift.scrumboard.camel.tasks")
         .streamCaching()
         
@@ -24,13 +24,13 @@ public class TaskRoute extends RouteBuilder{
         .log(LoggingLevel.INFO, "Operation Name: ${header.operationName}")
 		.choice()
 			.when(simple("${header.operationName} =~ 'claimTask'"))
-				.bean("taskProcessor", "createStory")
+				.bean("taskProcessor", "claimTask")
 			.when(simple("${header.operationName} =~ 'completeTask'"))
-				.bean("taskProcessor", "deleteStory")
+				.bean("taskProcessor", "completeTask")
 			.when(simple("${header.operationName} =~ 'resetTask'"))
-				.bean("taskProcessor", "getStory")
+				.bean("taskProcessor", "resetTask")
 			.when(simple("${header.operationName} =~ 'deleteTask'"))
-				.bean("taskProcessor", "assignStoryPoints")
+				.bean("taskProcessor", "deleteTask")
 		.end();
     }
 }

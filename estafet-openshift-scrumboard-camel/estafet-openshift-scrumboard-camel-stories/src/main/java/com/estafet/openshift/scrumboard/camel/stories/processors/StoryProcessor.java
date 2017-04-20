@@ -20,9 +20,8 @@ public class StoryProcessor {
 		return storyDAO.saveStory(story);
 	}
 
-	public Story getStory(@Header("") int storyId, Exchange exchange) {
-		exchange.getContext();
-		return storyDAO.getStory(storyId);
+	public Story getStory(String storyId) {
+		return storyDAO.getStory(Integer.parseInt(storyId));
 	}
 	
 	public void assignStorypointsToStoryById(@Body Story story) {
