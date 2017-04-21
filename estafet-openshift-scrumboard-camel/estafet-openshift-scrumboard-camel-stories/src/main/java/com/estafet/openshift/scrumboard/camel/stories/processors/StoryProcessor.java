@@ -16,12 +16,16 @@ public class StoryProcessor {
 	private StoryDAO storyDAO;
 
 
-	public int createStory(@Body Story story) {
+	public int createStory(Story story) {
 		return storyDAO.saveStory(story);
 	}
 
 	public Story getStory(String storyId) {
 		return storyDAO.getStory(Integer.parseInt(storyId));
+	}
+	
+	public void deleteStory(String storyId) {
+		storyDAO.getStory(Integer.parseInt(storyId));
 	}
 	
 	public void assignStorypointsToStoryById(@Body Story story) {
@@ -36,8 +40,6 @@ public class StoryProcessor {
 		//TODO To be implemented in the DAO
 	}
 
-	public void deleteStory(int storyId) {
-	}
 
 	public void addAcceptanceCriteria(AddAcceptanceCriteriaParameters parameters){
 		//TODO To be implemented in the DAO

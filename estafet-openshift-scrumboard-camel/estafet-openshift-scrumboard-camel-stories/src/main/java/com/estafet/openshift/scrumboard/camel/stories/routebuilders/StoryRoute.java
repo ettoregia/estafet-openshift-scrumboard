@@ -19,7 +19,7 @@ public class StoryRoute extends RouteBuilder{
 
         onException(Throwable.class)
             .handled(true)
-            .log(LoggingLevel.ERROR, "${exception.message}\n${exception.stacktrace}");
+            .log(LoggingLevel.ERROR, "--------ERROR--------${exception.message}\n${exception.stacktrace}");
     }
 
     public void configure() throws Exception {
@@ -27,19 +27,21 @@ public class StoryRoute extends RouteBuilder{
 
         from("cxfrs:http://localhost:8183/stories?"
         		+ "bindingStyle=SimpleConsumer&"
+//        		+ "providers=JacksonJsonProvider&"
         		+ "resourceClasses=com.estafet.openshift.scrumboard.camel.stories.services.impl.StoryServiceImpl")
         .routeId("com.estafet.openshift.scrumboard.camel.stories")
-        .streamCaching()
+//        .streamCaching()
         
         .log(LoggingLevel.INFO, "${header.CamelHttpMethod}")
         .log(LoggingLevel.INFO, "Operation Name: ${header.operationName}")
 		.choice()
 			.when(simple("${header.operationName} =~ 'createStory'"))
-				.unmarshal().json(JsonLibrary.Jackson)
+//				.unmarshal().json(JsonLibrary.Jackson, Story.class)
 				.bean("storyProcessor", "createStory")
 			.when(simple("${header.operationName} =~ 'deleteStory'"))
-				.unmarshal().json(JsonLibrary.Jackson)
 				.bean("storyProcessor", "deleteStory")
+				.marshal().json(JsonLibrary.Jackson, Story.class)
+				.log("${body}")
 			.when(simple("${header.operationName} =~ 'assignStoryPoints'"))
 				.unmarshal().json(JsonLibrary.Jackson)
 				.bean("storyProcessor", "assignStoryPoints")
@@ -62,6 +64,7 @@ public class StoryRoute extends RouteBuilder{
 				
 				
 		.end()
+//		.unmarshal().json(JsonLibrary.Jackson);
 		.setBody(simple(""));	
     }
 
