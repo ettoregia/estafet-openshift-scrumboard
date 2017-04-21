@@ -11,7 +11,33 @@
 	<artifactId>estafet-openshift-scrumboard-camel-search</artifactId>
 	<packaging>jar</packaging>
 
-	<name>scrumboard-camel-search</name>
+	<name>estafet-openshift-scrumboard-camel-search</name>
+	
+	<build>
+		<defaultGoal>install</defaultGoal>
+
+		<plugins>
+
+			<!-- to generate the MANIFEST-FILE of the bundle -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>estafet-openshift-scrumboard-camel-search</Bundle-SymbolicName>
+						<!-- <Private-Package>com.estafet.openshift.*</Private-Package> -->
+						<Import-Package>*</Import-Package>
+						<Export-Package>
+							!*.impl*,
+							!*.internal*
+						</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
 

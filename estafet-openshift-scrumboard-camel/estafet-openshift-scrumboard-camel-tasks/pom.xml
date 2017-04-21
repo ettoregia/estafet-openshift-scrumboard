@@ -8,7 +8,33 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>estafet-openshift-scrumboard-camel-tasks</artifactId>
-	<packaging>jar</packaging>
-	<name>scrumboard-camel-tasks</name>
+	<packaging>bundle</packaging>
+	<name>estafet-openshift-scrumboard-camel-tasks</name>
+	
+	<build>
+		<defaultGoal>install</defaultGoal>
+
+		<plugins>
+
+			<!-- to generate the MANIFEST-FILE of the bundle -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>estafet-openshift-scrumboard-camel-tasks</Bundle-SymbolicName>
+						<!-- <Private-Package>com.estafet.openshift.*</Private-Package> -->
+						<Import-Package>*</Import-Package>
+						<Export-Package>
+							!*.impl*,
+							!*.internal*
+						</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
 

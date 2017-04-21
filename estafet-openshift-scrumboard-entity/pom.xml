@@ -9,24 +9,49 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>estafet-openshift-scrumboard-entity</artifactId>
-	<packaging>jar</packaging>
-	<name>scrumboard-entity</name>
-	
+	<packaging>bundle</packaging>
+	<name>estafet-openshift-scrumboard-entity</name>
+
 	<properties>
 		<hibernate.version>5.2.10.Final</hibernate.version>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
-      		<groupId>org.hibernate</groupId>
-      		<artifactId>hibernate-entitymanager</artifactId>
-      		<version>${hibernate.version}</version>
-    	</dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
 		<dependency>
-    		<groupId>org.postgresql</groupId>
-    		<artifactId>postgresql</artifactId>
-    		<version>9.4-1206-jdbc42</version>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.4-1206-jdbc42</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<defaultGoal>install</defaultGoal>
+
+		<plugins>
+			<!-- to generate the MANIFEST-FILE of the bundle -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>estafet-openshift-scrumboard-entity</Bundle-SymbolicName>
+						<Private-Package>com.estafet.openshift.*</Private-Package>
+						<Import-Package>*</Import-Package>
+						<Export-Package>
+							!*.impl*,
+							!*.internal*
+						</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>	
 </project>
 

@@ -9,9 +9,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>estafet-openshift-scrumboard-dao</artifactId>
-	<packaging>jar</packaging>
+	<packaging>bundle</packaging>
 
-	<name>scrumboard-dao</name>
+	<name>estafet-openshift-scrumboard-dao</name>
 
 	<dependencies>
 		<dependency>
@@ -30,11 +30,6 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.5.6</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.openjpa</groupId>
-			<artifactId>openjpa</artifactId>
-			<version>2.3.0</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -45,14 +40,18 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<!-- <version>2.3.7</version> -->
+				<version>3.0.1</version>
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Bundle-SymbolicName>scrumboard-demo</Bundle-SymbolicName>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 						<!-- <Private-Package>com.estafet.openshift.*</Private-Package> -->
 						<Import-Package>*</Import-Package>
-						<Export-Package>*;provide:=true</Export-Package>
+						<Export-Package>
+							!*.impl*,
+							!*.internal*,
+							*							
+						</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>
