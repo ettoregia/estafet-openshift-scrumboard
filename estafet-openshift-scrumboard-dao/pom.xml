@@ -33,8 +33,6 @@
 	</dependencies>
 
 	<build>
-		<defaultGoal>install</defaultGoal>
-
 		<plugins>
 			<!-- to generate the MANIFEST-FILE of the bundle -->
 			<plugin>
