@@ -1,5 +1,6 @@
 package com.estafet.openshift.scrumboard.camel.stories.services.api;
 
+import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -17,16 +18,17 @@ public interface StoryService {
 	
 	@POST
 	@Path("/createStory/")
-	@Consumes({"application/json" })
-	int createStory(Story story);
+	@Consumes({MediaType.APPLICATION_JSON })
+	@Produces({MediaType.TEXT_PLAIN })
+	int createStory(@BeanParam Story story);
 		
 	@DELETE
 	@Path("/deleteStory/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	void deleteStory(int storyId);
+	void deleteStory(@PathParam("id") int storyId);
 	
 	@GET
 	@Path("/getStory/{id}/")
+	@Produces({MediaType.APPLICATION_JSON })
 	Story getStory(@PathParam("id") int storyId);
 	
 	@POST
