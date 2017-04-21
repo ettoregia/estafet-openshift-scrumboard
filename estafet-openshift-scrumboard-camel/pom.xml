@@ -3,9 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.estafet.openshift.scrumboard</groupId>
+	<parent>
+		<groupId>com.estafet.openshift.scrumboard</groupId>
+		<artifactId>estafet-openshift-scrumboard</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
 	<artifactId>estafet-openshift-scrumboard-camel</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
