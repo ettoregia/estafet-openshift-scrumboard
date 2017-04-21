@@ -16,7 +16,7 @@
 	</modules>
 
 	<name>scrumboard</name>
-
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -24,6 +24,72 @@
 			<version>4.12</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.commonjava.maven.plugins</groupId>
+				<artifactId>directory-maven-plugin</artifactId>
+				<version>0.1</version>
+				<executions>
+					<execution>
+						<id>directories</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>highest-basedir</goal>
+						</goals>
+						<configuration>
+							<property>main.basedir</property>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<urls>
+								<url>
+									file://${main.basedir}/build-local.properties
+								</url>
+							</urls>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>copy-bundles</id>
+						<phase>install</phase>
+						<configuration>
+							<target>
+								<copy todir="${jboss.fuse.home}/deploy" overwrite="true"
+									force="true" preservelastmodified="true">
+									<fileset dir="${project.build.directory}">
+										<include name="*.jar" />
+										<exclude name="*db*.jar" />
+									</fileset>
+								</copy>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
 
