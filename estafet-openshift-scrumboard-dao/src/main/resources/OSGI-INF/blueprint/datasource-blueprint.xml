@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+           xmlns:enc="http://karaf.apache.org/xmlns/jasypt/v1.0.0"
            xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
            xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
-<!--     <cm:property-placeholder id="placeholder" update-strategy="reload"
-                             persistent-id="com.arqiva.chm.dao.model">
-    </cm:property-placeholder> -->
-
     <!-- PostgreSQL DataSource Definition -->
     <!-- JNDI name : jdbc/postgresds -->
-    <!--https://commons.apache.org/proper/commons-dbcp/configuration.html-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://localhost:5432/scrum"/>
         <property name="username" value="postgres"/>
         <property name="password" value="welcome1"/>
         <property name="removeAbandoned" value="true"/>
-        <!--<property name="initialSize" value="0" />-->
-        <!--<property name="maxActive" value="150" />-->
-        <!--<property name="maxIdle" value="0" />-->
     </bean>
 
     <service interface="javax.sql.DataSource" ref="dataSource">

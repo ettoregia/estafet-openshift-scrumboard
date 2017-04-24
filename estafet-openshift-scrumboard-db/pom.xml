@@ -14,20 +14,16 @@
 
 	<name>scrumboard-db</name>
 
-	<properties>
-		<hibernate.version>5.2.10.Final</hibernate.version>
-	</properties>
-
 	<dependencies>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.2.10.Final</version>
+		</dependency>	
 		<dependency>
 			<groupId>com.estafet.openshift.scrumboard</groupId>
 			<artifactId>estafet-openshift-scrumboard-entity</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>

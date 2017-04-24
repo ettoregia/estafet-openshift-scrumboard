@@ -10,24 +10,13 @@
              http://aries.apache.org/xmlns/transactions/v1.0.0
              http://aries.apache.org/xmlns/jpa/v1.1.0">
 
-	<!-- Configuration -->
-	<cm:property-placeholder id="placeholder"
-		persistent-id="com.estafet.openshift.scrumboard.dao.api"
-		update-strategy="reload">
-		<cm:default-properties>
-			<cm:property name="force.replace" value="00" />
-		</cm:default-properties>
-	</cm:property-placeholder>
-
-	<service id="StoryDAOImplService" interface="com.estafet.openshift.scrumboard.dao.api.StoryDAO"
-		ref="StoryDAOImpl" />
+	<service id="StoryDAOImplService" interface="com.estafet.openshift.scrumboard.dao.api.StoryDAO"	ref="StoryDAOImpl" />
 	<bean id="StoryDAOImpl" class="com.estafet.openshift.scrumboard.dao.impl.StoryDAOImpl">
 		<jpa:context unitname="scrum-unit" property="entityManager"/>
         <tx:transaction method="*" value="Required"/>
 	</bean>
 
-	<service id="TaskDAOImplService" interface="com.estafet.openshift.scrumboard.dao.api.TaskDAO"
-		ref="TaskDAOImpl" />
+	<service id="TaskDAOImplService" interface="com.estafet.openshift.scrumboard.dao.api.TaskDAO" ref="TaskDAOImpl" />
 	<bean id="TaskDAOImpl" class="com.estafet.openshift.scrumboard.dao.impl.TaskDAOImpl">
 		<jpa:context unitname="scrum-unit" property="entityManager"/>
         <tx:transaction method="*" value="Required"/>

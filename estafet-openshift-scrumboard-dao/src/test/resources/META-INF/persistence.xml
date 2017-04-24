@@ -1,0 +1,35 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+	<persistence-unit name="test">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+
+		<class>com.estafet.openshift.scrumboard.entity.AcceptanceCriterion</class>
+		<class>com.estafet.openshift.scrumboard.entity.Project</class>
+		<class>com.estafet.openshift.scrumboard.entity.Sprint</class>
+		<class>com.estafet.openshift.scrumboard.entity.Story</class>
+		<class>com.estafet.openshift.scrumboard.entity.Task</class>
+		<class>com.estafet.openshift.scrumboard.entity.User</class>
+		
+		<properties>
+
+			<property name="javax.persistence.schema-generation.database.action" value="none" />
+			<property name="javax.persistence.schema-generation.scripts.action"	value="none" />
+
+			<property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver" />
+            <property name="openjpa.ConnectionURL" value="jdbc:postgresql://localhost:5432/scrum" />
+
+            <property name="openjpa.ConnectionUserName" value="postgres" />
+            <property name="openjpa.ConnectionPassword" value="welcome1" />
+
+            <property name="openjpa.DynamicEnhancementAgent" value="true" />
+            <property name="openjpa.RuntimeUnenhancedClasses" value="supported" />
+            <property name="openjpa.Log" value="DefaultLevel=WARN, Runtime=INFO, Tool=INFO, SQL=TRACE"/>
+		</properties>
+
+	</persistence-unit>
+
+
+</persistence>
