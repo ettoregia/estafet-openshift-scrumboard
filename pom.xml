@@ -73,10 +73,13 @@
 						<phase>install</phase>
 						<configuration>
 							<target>
+								<delete>
+									<fileset dir="${jboss.fuse.home}/deploy" includes="${project.artifactId}-*.jar"/>
+								</delete>
 								<copy todir="${jboss.fuse.home}/deploy" overwrite="true"
 									force="true" preservelastmodified="true">
 									<fileset dir="${project.build.directory}">
-										<include name="*.jar" />
+										<include name="${project.artifactId}-*.jar" />
 										<exclude name="*db*.jar" />
 									</fileset>
 								</copy>
