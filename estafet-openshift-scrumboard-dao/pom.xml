@@ -22,7 +22,7 @@
 		<dependency>
 			<groupId>org.apache.openjpa</groupId>
 			<artifactId>openjpa</artifactId>
-			<version>2.4.0</version>
+			<version>2.3.0</version>
 		</dependency>	
 		<dependency>
 			<groupId>org.dbunit</groupId>
@@ -39,6 +39,7 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.5.6</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -52,14 +53,18 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
+						 <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-						<!-- <Private-Package>com.estafet.openshift.*</Private-Package> -->
-						<Import-Package>*</Import-Package>
+						<Import-Package>
+							!com.ibm.websphere.jtaextensions,   
+							*
+						</Import-Package>
 						<Export-Package>
 							!*.impl*,
 							!*.internal*,
 							*							
 						</Export-Package>
+						<Include-Resource>{maven-resources}</Include-Resource>
 					</instructions>
 				</configuration>
 			</plugin>
